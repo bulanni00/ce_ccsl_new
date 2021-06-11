@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:ce_ccsl_new/Utils/httpData.dart';
+import 'package:ce_ccsl_new/page/Tabs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -569,7 +570,7 @@ class _LoginPageState extends State<LoginPage>
         BotToast.closeAllLoading();
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('Name', username);
-        Get.off('/');
+        Get.off(Tabs());
       }else{
         BotToast.closeAllLoading();
         BotToast.showText(text: '用户名或者密码错误'.tr);
