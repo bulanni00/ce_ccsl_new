@@ -61,7 +61,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: _body(),
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        child: _body(),
+        onTap: (){
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+      ),
     );
   }
 
@@ -385,13 +391,13 @@ class _HomePageState extends State<HomePage> {
                       //关闭键盘
                       FocusScope.of(context).requestFocus(FocusNode());
                       var data = await Get.to(FullScreenScannerPage());
-                        print('返回来了什么:$data');
-                        if (data != null) {
-                          if (data['success'] == 'ok') {
-                            __get(data['code']);
-                          }
+                      print('返回来了什么:$data');
+                      if (data != null) {
+                        if (data['success'] == 'ok') {
+                          __get(data['code']);
                         }
- 
+                      }
+
                       /// 延时2s执行返回
                       // Future.delayed(Duration(seconds: 0.5), () {
                       //   Get.toNamed('/saoma');
@@ -435,21 +441,21 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 16,
                         ),
                         cursorColor: Colors.green,
-                        decoration: InputDecoration(
-                          //contentPadding: EdgeInsets.only(top: 14),
-                          //isDense: true,
-                          border: InputBorder.none,
-                          hintText: _code, //默认值
-                          // prefix: Expanded(
-                          //   child: Text('CE'),
-                          // ),
-                          prefixText: 'CE ',
-                          //labelText: 'CE',
-                          // prefixIcon: Center(
+                        // decoration: InputDecoration(
+                        //   //contentPadding: EdgeInsets.only(top: 14),
+                        //   //isDense: true,
+                        //   border: InputBorder.none,
+                        //   hintText: _code, //默认值
+                        //   // prefix: Expanded(
+                        //   //   child: Text('CE'),
+                        //   // ),
+                        //   prefixText: 'CE ',
+                        //   //labelText: 'CE',
+                        //   // prefixIcon: Center(
 
-                          //   child: Text('CE'),
-                          // ),
-                        ),
+                        //   //   child: Text('CE'),
+                        //   // ),
+                        // ),
                       ),
                     ),
                   ),
