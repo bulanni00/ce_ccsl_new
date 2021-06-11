@@ -569,7 +569,7 @@ class _LoginPageState extends State<LoginPage>
         BotToast.closeAllLoading();
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('Name', username);
-        Get.toNamed('/HomePage');
+        Get.off('/');
       }else{
         BotToast.closeAllLoading();
         BotToast.showText(text: '用户名或者密码错误'.tr);
