@@ -11,7 +11,7 @@ void main() {
   );
 }
 
-//2333rrrrrqqq
+//2333
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
