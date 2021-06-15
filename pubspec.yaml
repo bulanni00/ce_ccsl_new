@@ -1,5 +1,5 @@
 name: ce_ccsl_new
-description: A new Flutter project.
+description: Cambodian Express.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -48,7 +48,7 @@ dependencies:
   # 支持条形码扫描
   ai_barcode: ^3.0.1
   # 动态权限申请
-  permission_handler: ^7.0.0
+  permission_handler: ^8.1.0
   # 生成启动图标
   flutter_launcher_icons: ^0.9.0
   # 设置开机画面
