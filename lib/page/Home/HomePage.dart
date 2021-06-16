@@ -1,3 +1,4 @@
+import 'package:ce_ccsl_new/page/SaoMa/saoMa2.dart';
 import 'package:ce_ccsl_new/page/SaoMa/saoMas.dart';
 import 'package:ce_ccsl_new/utils2/HttpData.dart';
 import 'package:dio/dio.dart';
@@ -390,7 +391,8 @@ class _HomePageState extends State<HomePage> {
                     onTap: () async {
                       //关闭键盘
                       FocusScope.of(context).requestFocus(FocusNode());
-                      var data = await Get.to(FullScreenScannerPage());
+                      //Get.to(CustomSizeScannerPage());
+                      var data = await Get.to(CustomSizeScannerPage());
                       print('返回来了什么:$data');
                       if (data != null) {
                         if (data['success'] == 'ok') {
@@ -441,21 +443,21 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 16,
                         ),
                         cursorColor: Colors.green,
-                        // decoration: InputDecoration(
-                        //   //contentPadding: EdgeInsets.only(top: 14),
-                        //   //isDense: true,
-                        //   border: InputBorder.none,
-                        //   hintText: _code, //默认值
-                        //   // prefix: Expanded(
-                        //   //   child: Text('CE'),
-                        //   // ),
-                        //   prefixText: 'CE ',
-                        //   //labelText: 'CE',
-                        //   // prefixIcon: Center(
+                        decoration: InputDecoration(
+                          //contentPadding: EdgeInsets.only(top: 14),
+                          //isDense: true,
+                          border: InputBorder.none,
+                          hintText: _code, //默认值
+                          // prefix: Expanded(
+                          //   child: Text('CE'),
+                          // ),
+                          prefixText: 'CE ',
+                          //labelText: 'CE',
+                          // prefixIcon: Center(
 
-                        //   //   child: Text('CE'),
-                        //   // ),
-                        // ),
+                          //   child: Text('CE'),
+                          // ),
+                        ),
                       ),
                     ),
                   ),
