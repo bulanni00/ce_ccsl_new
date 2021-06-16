@@ -1,4 +1,4 @@
-package com.liu.ce_ccsl_new
+package com.liujunpeng.ce_ccsl
 
 import io.flutter.embedding.android.FlutterActivity
 

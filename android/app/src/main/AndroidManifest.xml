@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liu.ce_ccsl_new">
+    package="com.liujunpeng.ce_ccsl">
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="ce_ccsl_new"
+        android:label="CE CCSL"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
