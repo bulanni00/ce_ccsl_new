@@ -2,5 +2,4 @@
 
 A new Flutter project.
 
-
-![](1.png =240x240)
+![test image size](1.png){:height="50%" width="50%"}
