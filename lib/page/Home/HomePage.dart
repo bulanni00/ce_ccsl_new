@@ -417,7 +417,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(
                       left: 12, right: 12, top: 6, bottom: 6),
                   child: Container(
-                    height: 45,
+                    //height: 45,
                     //width: 250,
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
@@ -433,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(
-                          left: 10, right: 5, top: 25, bottom: 1),
+                          left: 10, right: 5, top: 0, bottom: 1),
                       child: TextField(
                         keyboardType: TextInputType.number,
                         autofocus: false,
