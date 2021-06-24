@@ -563,6 +563,7 @@ class _LoginPageState extends State<LoginPage>
     dio.options.connectTimeout = 5000;
     dio.options.receiveTimeout = 3000;
     print('登录');
+    var response;
     try {
       response = await dio.get(
           'http://api.ceccsl.com/api/login/get?Name=$username&Pwd=$password');
