@@ -567,6 +567,7 @@ class _LoginPageState extends State<LoginPage>
     try {
       response = await dio.get(
           'http://api.ceccsl.com/api/login/get?Name=$username&Pwd=$password');
+          print(response.data);
     } catch (e) {
       //print('错误');
       //print('Network connection error, please check the network');
