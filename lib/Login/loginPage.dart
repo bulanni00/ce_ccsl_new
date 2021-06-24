@@ -567,7 +567,7 @@ class _LoginPageState extends State<LoginPage>
     try {
       response = await dio.get(
           'http://api.ceccsl.com/api/login/get?Name=$username&Pwd=$password');
-          print(response.data);
+          //print(response.data);
     } catch (e) {
       //print('错误');
       //print('Network connection error, please check the network');
@@ -577,7 +577,7 @@ class _LoginPageState extends State<LoginPage>
     }
 
     //response = await dio.get('http://api.ceccsl.com/api/login/get?Name=K000001&Pwd=CE123123');
-    print(response.data);
+    //print(response.data);
     if (response.statusCode == 200) {
       if (response.data == null) {
         BotToast.closeAllLoading();
