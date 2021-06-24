@@ -46,7 +46,6 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
             child: Stack(
               //fit: StackFit.expand,
               children: <Widget>[
-                
                 AppBarcodeScannerWidget.defaultStyle(
                   resultCallback: (String code) {
                     if (openFlash == true) {
@@ -70,8 +69,8 @@ class _CustomSizeScannerPageState extends State<CustomSizeScannerPage> {
                     //color: Colors.blue,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color:Colors.blue,
-                        width:2,
+                        color: Colors.blue,
+                        width: 2,
                       ),
                     ),
                   ),

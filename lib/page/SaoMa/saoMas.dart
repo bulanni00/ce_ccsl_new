@@ -22,6 +22,7 @@ class _FullScreenScannerPageState extends State<FullScreenScannerPage> {
           //     Text("「$_code」"),
           //   ],
           // ),
+          
           Expanded(
             child: AppBarcodeScannerWidget.defaultStyle(
               resultCallback: (String code) {

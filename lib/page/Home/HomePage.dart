@@ -1,3 +1,4 @@
+import 'package:ce_ccsl_new/page/Home/tiaoma.dart';
 import 'package:ce_ccsl_new/page/SaoMa/saoMa2.dart';
 import 'package:ce_ccsl_new/page/SaoMa/saoMas.dart';
 import 'package:ce_ccsl_new/utils2/HttpData.dart';
@@ -65,9 +66,15 @@ class _HomePageState extends State<HomePage> {
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
         child: _body(),
-        onTap: (){
+        onTap: () {
           FocusScope.of(context).requestFocus(FocusNode());
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Get.to(TiaoMa());
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
@@ -116,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 child: Card(
                   clipBehavior: Clip.antiAlias,
                   semanticContainer: false,
-                  elevation: 20.0, //阴影
+                  elevation: 2.0, //阴影
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -129,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('客户名称:'.tr),
+                            Text('名称:'.tr),
                             Text('${v['Contact']}'),
                           ],
                         ),
@@ -137,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('客户电话:'.tr),
+                            Text('电话:'.tr),
                             InkWell(
                               onTap: () {
                                 _showDialog(
@@ -150,15 +157,15 @@ class _HomePageState extends State<HomePage> {
                               },
                               child: Row(
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 10.0),
-                                    child: Icon(
-                                      Icons.phone_in_talk,
-                                      color: Colors.blue,
-                                      size: 14,
-                                    ),
-                                  ),
                                   Text('${v['Phone']}'),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.phone_in_talk,
+                                    color: Colors.blue,
+                                    size: 16,
+                                  ),
                                 ],
                               ),
                             ),
@@ -168,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('客户地址:'.tr),
+                            Text('地址:'.tr),
                             SizedBox(
                               width: 15,
                             ),
@@ -186,13 +193,25 @@ class _HomePageState extends State<HomePage> {
                                   );
                                   //openMapsSheet(context, 11.5562167, 104.9097976);
                                 },
-                                child: Text(
-                                  '${v['Province'] != null ? v['Province'] : ''} ${v['City'] != null ? v['City'] : ''} ${v['Add'] != null ? v['Add'] : ''}',
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 14,
-                                    decoration: TextDecoration.none,
-                                  ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        '${v['Province'] != null ? v['Province'] : ''} ${v['City'] != null ? v['City'] : ''} ${v['Add'] != null ? v['Add'] : ''}',
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 14,
+                                          decoration: TextDecoration.none,
+                                        ),
+                                      ),
+                                    ),
+                                    v['latitude'] == 0.0
+                                        ? Text('')
+                                        : Icon(
+                                            Icons.room_outlined,
+                                            color: Colors.blue,
+                                          )
+                                  ],
                                 ),
                               ),
                             ),
@@ -202,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('位置照片:'.tr),
+                            Text('照片:'.tr),
                             Row(
                               children: [
                                 InkWell(
@@ -321,6 +340,7 @@ class _HomePageState extends State<HomePage> {
 
     Response response;
     var dio = Dio();
+    BotToast.showText(text: code);
     response =
         await dio.get('http://api.ceccsl.com/api/address/getaddress?num=$code');
     if (response.statusCode == 200) {
@@ -331,7 +351,7 @@ class _HomePageState extends State<HomePage> {
         });
       } else {
         BotToast.closeAllLoading();
-        BotToast.showText(text: '请稍后尝试'.tr);
+        BotToast.showText(text: '请勿扫描二维码，应扫描一维码'.tr);
       }
     } else {
       BotToast.closeAllLoading();
@@ -392,7 +412,7 @@ class _HomePageState extends State<HomePage> {
                       //关闭键盘
                       FocusScope.of(context).requestFocus(FocusNode());
                       //Get.to(CustomSizeScannerPage());
-                      var data = await Get.to(CustomSizeScannerPage());
+                      var data = await Get.to(FullScreenScannerPage());
                       print('返回来了什么:$data');
                       if (data != null) {
                         if (data['success'] == 'ok') {

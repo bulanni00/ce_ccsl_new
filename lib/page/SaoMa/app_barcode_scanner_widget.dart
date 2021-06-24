@@ -206,7 +206,7 @@ class _AppBarcodeScannerWidgetState extends State<_BarcodeScannerWidget> {
     }, scannerViewCreated: () {
       TargetPlatform platform = Theme.of(context).platform;
       if (TargetPlatform.iOS == platform) {
-        Future.delayed(Duration(seconds: 2), () {
+        Future.delayed(Duration(seconds: 0), () {
           _scannerController.startCamera();
           _scannerController.startCameraPreview();
         });

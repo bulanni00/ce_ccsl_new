@@ -13,6 +13,7 @@ import 'package:get/get.dart' hide Response;
 //import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info/package_info.dart';
 import 'package:dio/dio.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
 
@@ -22,7 +23,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
-      
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String version = '';
   final FocusNode myFocusNodeEmailLogin = FocusNode();
@@ -540,9 +540,11 @@ class _LoginPageState extends State<LoginPage>
     //print(version);
     setState(() {});
   }
+
   late Response response;
   _getUserPassword() async {
     BotToast.showLoading();
+
     String username = loginEmailController.text;
     String password = loginPasswordController.text;
     print("用户名:" + username);
@@ -556,22 +558,34 @@ class _LoginPageState extends State<LoginPage>
       await prefs.setBool('switchValue', _switchValue);
     }
 
-    
     var dio = Dio();
-    //dio.options.baseUrl = 
-    response = await dio.get('http://api.ceccsl.com/api/login/get?Name=$username&Pwd=$password');
+    //dio.options.baseUrl =
+    dio.options.connectTimeout = 5000;
+    dio.options.receiveTimeout = 3000;
+    print('登录');
+    try {
+      response = await dio.get(
+          'http://api.ceccsl.com/api/login/get?Name=$username&Pwd=$password');
+    } catch (e) {
+      //print('错误');
+      //print('Network connection error, please check the network');
+      BotToast.showText(
+          text: 'Network connection error, please check the network');
+      BotToast.closeAllLoading();
+    }
+
     //response = await dio.get('http://api.ceccsl.com/api/login/get?Name=K000001&Pwd=CE123123');
     print(response.data);
-    if(response.statusCode == 200){
-      if(response.data == null){
+    if (response.statusCode == 200) {
+      if (response.data == null) {
         BotToast.closeAllLoading();
         BotToast.showText(text: '用户名或者密码错误'.tr);
-      }else if(response.data['Name'] == username){
+      } else if (response.data['Name'] == username) {
         BotToast.closeAllLoading();
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('Name', username);
         Get.off(Tabs());
-      }else{
+      } else {
         BotToast.closeAllLoading();
         BotToast.showText(text: '用户名或者密码错误'.tr);
       }
@@ -579,7 +593,6 @@ class _LoginPageState extends State<LoginPage>
       BotToast.closeAllLoading();
       BotToast.showText(text: '网络故障请稍后尝试'.tr);
     }
-    
   }
 
   // 注册
