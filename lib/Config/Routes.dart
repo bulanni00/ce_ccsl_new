@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 final routes = [
   GetPage(name: '/', page: () => Tabs()),
   GetPage(name: '/HomePage', page: () => HomePage()),
-  GetPage(name: '/SaoMa', page: () => FullScreenScannerPage()),
+ // GetPage(name: '/SaoMa', page: () => FullScreenScannerPage()),
   GetPage(name: '/News', page: () => News()),
  GetPage(name: '/News/detail', page: () => Detail()),
   GetPage(name: '/Login', page: () => LoginPage()),

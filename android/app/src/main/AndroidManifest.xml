@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="CE CCSL"
+        android:label="CCSL Courier"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

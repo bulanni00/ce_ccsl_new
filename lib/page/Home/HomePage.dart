@@ -1,5 +1,5 @@
 import 'package:ce_ccsl_new/page/Home/tiaoma.dart';
-import 'package:ce_ccsl_new/page/SaoMa/saoMa2.dart';
+import 'package:ce_ccsl_new/page/SaoMa/NewSaoMa.dart';
 import 'package:ce_ccsl_new/page/SaoMa/saoMas.dart';
 import 'package:ce_ccsl_new/utils2/HttpData.dart';
 import 'package:dio/dio.dart';
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-    print(this.listData);
+    //print(this.listData);
 
     return Expanded(
       child: ListView(
@@ -412,7 +412,8 @@ class _HomePageState extends State<HomePage> {
                       //关闭键盘
                       FocusScope.of(context).requestFocus(FocusNode());
                       //Get.to(CustomSizeScannerPage());
-                      var data = await Get.to(FullScreenScannerPage());
+                      this.listData = [];
+                      var data = await Get.to(QRViewExample());
                       print('返回来了什么:$data');
                       if (data != null) {
                         if (data['success'] == 'ok') {

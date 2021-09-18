@@ -20,7 +20,7 @@ class _TabsState extends State<Tabs> {
   // IOS Scaffold 风格
   _iosScaffold() {
     return CupertinoTabScaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Colors.grey[100],
       tabBar: CupertinoTabBar(
         backgroundColor: Colors.black.withOpacity(.0),
         items: [
@@ -43,12 +43,12 @@ class _TabsState extends State<Tabs> {
             switch (index) {
               case 0:
                 return HomePage();
-                
+
               case 1:
                 return News();
-                
+
               default:
-              return HomePage();
+                return HomePage();
             }
           },
         );

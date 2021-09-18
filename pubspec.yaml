@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 2.0.11+11
+version: 2.1.1+13
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -43,10 +43,9 @@ dependencies:
   #flutter_login: ^2.0.0
   # 跳转应用商店
   #open_appstore: ^1.0.2
-  # 只能扫描二维码
-  #qr_code_scanner: ^0.3.0
+
   # 支持条形码扫描
-  ai_barcode: ^3.0.1
+  qr_code_scanner: ^0.5.2
   # 动态权限申请
   permission_handler: ^7.0.0
   # 生成启动图标
@@ -54,7 +53,7 @@ dependencies:
   # 设置开机画面
   flutter_native_splash: ^1.1.8+4
   # 图片放大拖动
-  photo_view: ^0.11.1
+  photo_view: ^0.12.0
   # 获取应用信息
   package_info: ^2.0.2
   dio_cookie_manager: ^2.0.0
